@@ -1,0 +1,8 @@
+RewriteEngine On
+#RewriteBase /php_pitomnik/
+# Если это не реальный файл и не папка
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Перенаправляем всё на index.php
+RewriteRule ^(.*)$ index.php [L,QSA]
