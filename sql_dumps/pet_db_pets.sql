@@ -26,7 +26,7 @@ CREATE TABLE `pets` (
   `id` int NOT NULL AUTO_INCREMENT,
   `breed_id` int NOT NULL,
   `age` int DEFAULT '0',
-  `status` enum('available','on_hold','adopted') DEFAULT 'available',
+  `status` enum('available','unavailable') DEFAULT 'available',
   `name` varchar(100) NOT NULL,
   `gender` enum('male','female') NOT NULL,
   `birth_date` date DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `pets` (
   PRIMARY KEY (`id`),
   KEY `fk_pet_breed` (`breed_id`),
   CONSTRAINT `fk_pet_breed` FOREIGN KEY (`breed_id`) REFERENCES `breeds` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `pets` (
 
 LOCK TABLES `pets` WRITE;
 /*!40000 ALTER TABLE `pets` DISABLE KEYS */;
-INSERT INTO `pets` VALUES (1,1,3,'available','Рекс','male',NULL,'Очень дружелюбный пес, обожает играть с мячом и ладит с детьми.','/images/rex.jpg'),(2,4,2,'available','Мурка','male',NULL,'Спокойная и величественная кошка. Любит сидеть на подоконнике и мурчать.','/images/murka.jpg'),(3,2,5,'available','Барон','male',NULL,'Верный охранник и отличный компаньон для долгих прогулок.','/images/baron.jpg'),(4,5,1,'available','Снежок','male',NULL,'Маленький комочек нежности. Немного пуглив, но очень ласков.','/images/snowball.jpg'),(5,6,1,'available','Бусинка','male',NULL,'Тихая и забавная морская свинка. Обожает морковку.','/images/bead.jpg'),(6,3,4,'on_hold','Жорик','male',NULL,'Умный парень, который временно находится на лечении, но скоро будет искать дом.','/images/zhorik.jpg');
+INSERT INTO `pets` VALUES (1,1,3,'available','Рекс','male',NULL,'Очень дружелюбный пес, обожает играть с мячом и ладит с детьми.','/images/rex.jpg'),(2,4,2,'available','Мурка','male',NULL,'Спокойная и величественная кошка. Любит сидеть на подоконнике и мурчать.','/images/murka.jpg'),(3,2,5,'available','Барон','male',NULL,'Верный охранник и отличный компаньон для долгих прогулок.','/images/baron.jpg'),(4,5,1,'available','Снежок','male',NULL,'Маленький комочек нежности. Немного пуглив, но очень ласков.','/images/snowball.jpg'),(5,6,1,'available','Бусинка','male',NULL,'Тихая и забавная морская свинка. Обожает морковку.','/images/bead.jpg'),(6,1,4,'unavailable','Жорик','male',NULL,'Умный парень, который временно находится на лечении, но скоро будет искать дом.','images/pets/pet_1774046706.jpg');
 /*!40000 ALTER TABLE `pets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-01  7:51:54
+-- Dump completed on 2026-03-21  2:37:36
